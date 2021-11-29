@@ -4,7 +4,47 @@ from models.item import ItemModel
 
 class Item(Resource):
     parser = reqparse.RequestParser()
-    parser.add_argument('price',
+    parser.add_argument('time',
+        type=str,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+    parser.add_argument('status',
+        type=int,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+    parser.add_argument('check',
+        type=int,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+    parser.add_argument('tip',
+        type=int,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+    parser.add_argument('total',
+        type=int,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+    parser.add_argument('btc_asks',
+        type=int,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+    parser.add_argument('btc_convert',
+        type=float,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+    parser.add_argument('btc_raccount',
+        type=str,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+    parser.add_argument('commission',
         type=float,
         required=True,
         help="This field cannot be left blank!"
@@ -14,6 +54,7 @@ class Item(Resource):
         required=True,
         help="Every item needs a store id."
     )
+ 
 
     @jwt_required()
     def get(self, name):
